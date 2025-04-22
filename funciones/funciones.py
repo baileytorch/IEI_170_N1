@@ -1,10 +1,18 @@
-def saludar(nombre):
-    print(f"Buen día maravilloso {nombre}")
+def saludar(nombre, apellido, genero):
+    if genero.lower() == "hombre":
+        print(f"Buen día Don {nombre} {apellido}")
+    elif genero.lower() == "mujer":
+        print(f"Buen día Doña {nombre} {apellido}")
+    else:
+        print("Genero no ingresado")
     
 saludar("Erick Bailey")
 
-nombre_ingresado = input("Ingrese su nombre:")
-saludar(nombre_ingresado)
+nombre_ingresado = input("Ingrese su nombre: ")
+apellido_ingresado = input("Ingrese su apellido: ")
+genero_ingresado = input("Ingrese su genero (hombre/mujer): ")
+
+saludar(nombre = nombre_ingresado, genero = genero_ingresado, apellido = apellido_ingresado)
 
 numero1= int(input("Ingrese primer número."))
 numero2 = int(input("Ingrese segundo número."))
