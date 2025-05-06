@@ -1,10 +1,10 @@
 # Cálculos relacionados a triángulos
 
 def perimetro_triangulo(arg):
-    pass
+    print("Calculando perímetro del triángulo...")
 
 def area_triangulo(arg):
-    pass
+    print("Calculando área del triángulo...")
 
 def volumen_prisma(arg):
-    pass
+    print("Calculando volumen del prisma...")

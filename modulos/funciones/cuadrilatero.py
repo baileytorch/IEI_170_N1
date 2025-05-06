@@ -12,5 +12,5 @@ def volumen_cubo(a,b,c):
     resultado = a * b * c
     return resultado
 
-def volumen_piramide(arg):
-    pass
+def volumen_piramide():
+    print("Ingresando...")
