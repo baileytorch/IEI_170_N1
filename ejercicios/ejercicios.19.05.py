@@ -19,8 +19,12 @@ estudiantes = [
     ['Soyla Dolores', [4.0, 4.7, 5.1]]
 ]
 
-suma = 0
+print()
 for estudiante in estudiantes:
-    for notas in estudiante[1]:
-        suma = notas + suma
-    print(suma)
+    suma = 0
+    promedio = 0
+    for i in range(len(estudiante[1])):
+        suma = suma + estudiante[1][i]
+    promedio = suma / len(estudiante[1])
+    print(f'{estudiante[0]}, Notas: {estudiante[1]}, Promedio = {round(promedio,1)}')
+    print()
