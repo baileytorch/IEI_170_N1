@@ -1,3 +1,5 @@
+from prettytable import PrettyTable
+
 territorio_chile = [
     ["Arica y Parinacota", [
         ["Arica", ["Arica", "Camarones"]],
@@ -51,3 +53,13 @@ territorio_chile = [
         ["Biobío", ["Alto Biobío", "Antuco", "Cabrero", "Laja", "Los Ángeles", "Mulchén", "Nacimiento", "Negrete", "Quilaco", "Quilleco", "San Rosendo", "Santa Bárbara", "Tucapel", "Yumbel"]]
     ]]
 ]
+
+# tabla = PrettyTable(["Región","Provincia","Comuna"])
+
+# for fila in territorio_chile:
+#     tabla.add_row([fila[0]])
+
+# print(tabla)
+
+print(len(territorio_chile))
+print(len(territorio_chile[0]))
