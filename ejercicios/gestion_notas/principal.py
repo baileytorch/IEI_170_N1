@@ -1,0 +1,3 @@
+from asignaturas.gestion_asignaturas import agregar_asignatura
+
+agregar_asignatura()
