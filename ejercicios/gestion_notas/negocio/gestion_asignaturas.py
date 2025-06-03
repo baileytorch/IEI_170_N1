@@ -1,6 +1,5 @@
 from data.asignaturas import asignaturas
 from data.crear_data import crear_data
-import os
 
 # CREATE
 def agregar_asignatura():

@@ -4,3 +4,5 @@ modulos/funciones/__pycache__/cuadrilatero.cpython-313.pyc
 modulos/funciones/__pycache__/triangulo.cpython-313.pyc
 ejercicios/gestion_notas/asignaturas/__pycache__/gestion_asignaturas.cpython-313.pyc
 ejercicios/gestion_notas/data/__pycache__/asignaturas.cpython-313.pyc
+ejercicios/gestion_notas/negocio/__pycache__/gestion_asignaturas.cpython-313.pyc
+ejercicios/gestion_notas/negocio/__pycache__/gestion_profesores.cpython-313.pyc
