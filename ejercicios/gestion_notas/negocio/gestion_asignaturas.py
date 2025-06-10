@@ -34,14 +34,18 @@ def buscar_asignatura():
             return "Asignatura NO encontrada"
 
 # READ 1 dato
-def indice_asignatura():
-    busqueda = input("Ingrese asignatura a buscar: ")
+def indice_asignatura(busqueda):
     for i in range(len(asignaturas)):
         if busqueda.lower() in asignaturas[i].lower():
             return i
         else:
-            return "Asignatura NO encontrada"
+            return 0
 
 # UPDATE
-def actualizar_asignatura():
-    pass
+def actualizar_asignatura():    
+    busqueda = input("Ingrese asignatura a buscar: ")
+    numero_asignatura = indice_asignatura(busqueda)
+    if numero_asignatura == 0:
+        print('Asignatura NO encontrada')
+    else:
+        asignaturas[int()] = input('Ingrese nuevo nombre de asignatura')
