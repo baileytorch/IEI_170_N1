@@ -1,9 +1,14 @@
-from negocio.gestion_asignaturas import agregar_asignatura,listado_asignaturas
-from negocio.gestion_profesores import agregar_profesor
-from data.crear_data import crear_data
+from auxiliares.version import version_actual
+from auxiliares.menu import items_menu
 
-#agregar_asignatura()
-#listado_asignaturas()
-#crear_data()
+def menu_principal():
+    print()
+    print(f'SISTEMA DE GESTIÓN DE NOTAS v.{version_actual}')
+    print('=====================================')
+    print()
+    
+    for i in range(len(items_menu)):
+        print(f'[{i}] {items_menu[i]}')
+    print()
 
-agregar_profesor()
+menu_principal()

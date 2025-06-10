@@ -1,0 +1,1 @@
+items_menu = ['Gestión de Asignaturas','Gestión de Profesores']
