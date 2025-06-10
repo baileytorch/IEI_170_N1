@@ -7,8 +7,10 @@ def menu_principal():
     print('=====================================')
     print()
     
-    for i in range(len(items_menu)):
-        print(f'[{i}] {items_menu[i]}')
+    for clave,valor in items_menu.items():
+        print(f'[{clave}] {valor}')
     print()
+    opcion_menu = input(f'Seleccione su opción [0-{len(items_menu)-1}]: ')
+    
 
 menu_principal()
