@@ -32,3 +32,33 @@ def buscar_profesor():
             return profesor
         else:
             return "Docente NO encontrado"
+
+# READ 1 dato
+def indice_profesor(busqueda):
+    indice = 0
+    for i in range(len(profesores)):
+        if busqueda.lower() in profesores[i].lower():
+            indice = i
+    return indice
+
+# UPDATE
+def actualizar_profesor():    
+    busqueda = input("Ingrese docente a buscar: ")
+    numero_profesor = indice_profesor(busqueda)
+    if numero_profesor == 0:
+        print('Docente NO encontrado')
+    else:
+        if numero_profesor is not None:
+            profesores[numero_profesor] = input('Ingrese nuevo nombre de docente')
+    crear_data('profesores.py','profesores',profesores)
+
+# DELETE
+def eliminar_profesor():
+    busqueda = input("Ingrese docente a buscar: ")
+    numero_profesor = indice_profesor(busqueda)
+    if numero_profesor == 0:
+        print('Docente NO encontrado')
+    else:
+        if numero_profesor is not None:
+            profesores.pop(numero_profesor)
+    crear_data('profesores.py','profesores',profesores)

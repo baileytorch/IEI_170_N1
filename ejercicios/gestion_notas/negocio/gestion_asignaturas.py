@@ -35,11 +35,11 @@ def buscar_asignatura():
 
 # READ 1 dato
 def indice_asignatura(busqueda):
+    indice = 0
     for i in range(len(asignaturas)):
         if busqueda.lower() in asignaturas[i].lower():
-            return i
-        else:
-            return 0
+            indice = i
+    return indice
 
 # UPDATE
 def actualizar_asignatura():    
@@ -48,4 +48,17 @@ def actualizar_asignatura():
     if numero_asignatura == 0:
         print('Asignatura NO encontrada')
     else:
-        asignaturas[int()] = input('Ingrese nuevo nombre de asignatura')
+        if numero_asignatura is not None:
+            asignaturas[numero_asignatura] = input('Ingrese nuevo nombre de asignatura')
+    crear_data('asignaturas.py','asignaturas',asignaturas)
+
+# DELETE
+def eliminar_asignatura():
+    busqueda = input("Ingrese asignatura a buscar: ")
+    numero_asignatura = indice_asignatura(busqueda)
+    if numero_asignatura == 0:
+        print('Asignatura NO encontrada')
+    else:
+        if numero_asignatura is not None:
+            asignaturas.pop(numero_asignatura)
+    crear_data('asignaturas.py','asignaturas',asignaturas)
