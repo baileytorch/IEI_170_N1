@@ -2,7 +2,8 @@
 <ul>
     <li>Vistas (Interfaces de Usuario)</li>
     <li>Data</li>
-    <li>Negocio</li>
+    <li>Negocio</li>    
+    <li>Auxiliares</li>
 </ul>
 
 <p>
