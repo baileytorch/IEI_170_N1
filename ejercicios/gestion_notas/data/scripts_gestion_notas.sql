@@ -1,5 +1,5 @@
 CREATE TABLE IF NOT EXISTS docentes(
-    id_docente INT AUTOINCREMENT,
+    id_docente INT AUTO_INCREMENT,
     nombre_docente VARCHAR(255) NOT NULL,
     rut_docente INTEGER NOT NULL UNIQUE,
     digito_verificador VARCHAR(1) NOT NULL,
@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS docentes(
 );
 
 CREATE TABLE IF NOT EXISTS asignaturas(
-    id_asignatura INT AUTOINCREMENT,
+    id_asignatura INT AUTO_INCREMENT,
     codigo_asignatura VARCHAR(3) NOT NULL UNIQUE,
     nombre_asignatura VARCHAR(255) NOT NULL,
     id_docente INTEGER NULL,
