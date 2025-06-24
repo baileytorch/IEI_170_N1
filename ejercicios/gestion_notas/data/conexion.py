@@ -1,49 +1,18 @@
-import getpass
-import oracledb
+import mysql.connector
 
-# pw = getpass.getpass("Enter password: ")
+# Conectar con servidor
+conexion = mysql.connector.connect(
+    host="127.0.0.1",
+    port=3306,
+    user="root")
 
-connection = oracledb.connect(
-    user="demopython",
-    # password=pw,
-    dsn="localhost/xepdb1")
+# Crear un cursor
+cursor_mysql = conexion.cursor()
 
-print("Successfully connected to Oracle Database")
+# Ejecutar comandos SQL
+# Execute a query
+cursor_mysql.execute("SELECT CURDATE()")
 
-cursor = connection.cursor()
-
-# Create a table
-
-cursor.execute("""
-    begin
-        execute immediate 'drop table todoitem';
-        exception when others then if sqlcode <> -942 then raise; end if;
-    end;""")
-
-cursor.execute("""
-    create table todoitem (
-        id number generated always as identity,
-        description varchar2(4000),
-        creation_ts timestamp with time zone default current_timestamp,
-        done number(1,0),
-        primary key (id))""")
-
-# Insert some data
-
-rows = [ ("Task 1", 0 ),
-         ("Task 2", 0 ),
-         ("Task 3", 1 ),
-         ("Task 4", 0 ),
-         ("Task 5", 1 ) ]
-
-cursor.executemany("insert into todoitem (description, done) values(:1, :2)", rows)
-print(cursor.rowcount, "Rows Inserted")
-
-connection.commit()
-
-# Now query the rows back
-for row in cursor.execute('select description, done from todoitem'):
-    if (row[1]):
-        print(row[0], "is done")
-    else:
-        print(row[0], "is NOT done")
+# Fetch one result
+row = cursor_mysql.fetchone()
+print("Current date is: {0}".format(row))
