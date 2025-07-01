@@ -1,18 +1,42 @@
 import mysql.connector
+from mysql.connector import errorcode
+from auxiliares.data_conexion import servidor,puerto,usuario,base_datos,contrasena
 
 # Conectar con servidor
-conexion = mysql.connector.connect(
-    host="127.0.0.1",
-    port=3306,
-    user="root")
+def generar_conexion():
+    try:
+        conexion = mysql.connector.connect(
+            host = servidor,
+            port = puerto,
+            user = usuario,
+            database = base_datos,
+            password = contrasena)
+        if conexion and conexion.is_connected():
+            return conexion
+        else:
+            print('No ha sido posible conectarse con el servidor de base de datos')
+    except mysql.connector.Error as error_conexion:
+        if error_conexion.errno == errorcode.ER_ACCESS_DENIED_ERROR:
+            print('Acceso denegado, usuario o contraseña incorrectos')
+        elif error_conexion.errno == errorcode.ER_BAD_DB_ERROR:
+            print('Su base de datos NO existe.')
+        else:
+            print(f'Ha ocurrido un error: {error_conexion}')
+    else:
+        conexion.close()
 
 # Crear un cursor
-cursor_mysql = conexion.cursor()
+def generar_cursor():
+    conexion = generar_conexion()
+    if conexion is not None:
+        cursor = conexion.cursor()
+        return cursor
 
-# Ejecutar comandos SQL
-# Execute a query
-cursor_mysql.execute("SELECT CURDATE()")
-
-# Fetch one result
-row = cursor_mysql.fetchone()
-print("Current date is: {0}".format(row))
+def manejo_data(consulta):
+    # Ejecutar comandos SQL
+    # Execute a query
+    cursor = generar_cursor()
+    if cursor is not None:
+        cursor.execute(consulta)
+        resultado = cursor.fetchall()
+        return resultado

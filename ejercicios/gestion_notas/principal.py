@@ -1,6 +1,6 @@
 from auxiliares.version import version_actual
 from auxiliares.menu import items_menu
-from negocio.gestion_asignaturas import eliminar_asignatura
+from negocio.gestion_asignaturas import listado_asignaturas
 
 def menu_principal():
     print()
@@ -15,7 +15,7 @@ def menu_principal():
 
     if opcion_menu == '1':
         # Sub menú asignaturas
-        pass
+        listado_asignaturas()
     elif opcion_menu == '2':
         # Sub menú docentes
         pass

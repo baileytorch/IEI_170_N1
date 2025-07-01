@@ -1,5 +1,6 @@
 from data.asignaturas import asignaturas
 from data.crear_data import crear_data
+from data.conexion import manejo_data
 
 # CREATE
 def agregar_asignatura():
@@ -15,13 +16,17 @@ def agregar_asignatura():
 
 # READ todos
 def listado_asignaturas():
-    contador = 0
+    consulta = 'SELECT id_asignatura,codigo_asig, nombre_asig FROM asignaturas'
+    asignaturas_db = []
+    asignaturas_db = manejo_data(consulta)
     print() 
     print("Lista de Asignaturas")
     print("====================")
-    for asignatura in sorted(asignaturas):
-        contador+=1
-        print(f"{contador}.- {asignatura.title()}")    
+    if asignaturas_db is not None:
+        for asignatura in asignaturas_db:
+            print(f"{asignatura}")
+    else:
+        print('No se han encontrado asignaturas')  
     print("====================")
 
 # READ 1 dato   

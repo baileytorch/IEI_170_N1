@@ -11,3 +11,5 @@ ejercicios/gestion_notas/auxiliares/__pycache__/version.cpython-313.pyc
 .gitignore
 ejercicios/gestion_notas/data/__pycache__/crear_data.cpython-313.pyc
 ejercicios/gestion_notas/data/__pycache__/profesores.cpython-313.pyc
+ejercicios/gestion_notas/auxiliares/__pycache__/data_conexion.cpython-313.pyc
+ejercicios/gestion_notas/data/__pycache__/conexion.cpython-313.pyc

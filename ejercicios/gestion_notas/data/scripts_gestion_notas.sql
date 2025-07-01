@@ -31,7 +31,3 @@ INSERT INTO ASIGNATURAS (codigo_asignatura,nombre_asignatura) VALUES
 ('FIS','Cinemática');
 
 SELECT * FROM ASIGNATURAS;
-
-
-
-
