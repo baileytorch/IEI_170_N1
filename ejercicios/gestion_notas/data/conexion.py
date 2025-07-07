@@ -34,7 +34,6 @@ def generar_cursor():
 
 def manejo_data(consulta):
     # Ejecutar comandos SQL
-    # Execute a query
     cursor = generar_cursor()
     if cursor is not None:
         cursor.execute(consulta)
