@@ -1,6 +1,5 @@
-USE 'gestion_notas';
-
-ALTER TABLE asignaturas DROP FOREIGN KEY id_docente;
+ALTER TABLE asignaturas DROP FOREIGN KEY FK_docentes;
+ALTER TABLE asignaturas DROP COLUMN id_docente;
 
 CREATE TABLE IF NOT EXISTS docentes_asignaturas(
     id_docente_asignatura INT AUTO_INCREMENT,

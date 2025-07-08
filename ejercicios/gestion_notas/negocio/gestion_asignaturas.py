@@ -33,7 +33,7 @@ def mostrar_listado_asignatura(asignaturas):
     print("====================")
     if asignaturas != None:
         for asignatura in asignaturas:
-            print(asignatura)  
+            print(asignatura)
     print("====================")
 
 # READ 1 dato   
