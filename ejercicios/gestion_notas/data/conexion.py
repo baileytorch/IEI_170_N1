@@ -3,7 +3,7 @@ from mysql.connector import errorcode
 from auxiliares.data_conexion import servidor,puerto,usuario,base_datos,contrasena
 
 # Conectar con servidor
-def generar_conexion():
+def generar_conexion(consulta):
     try:
         conexion = mysql.connector.connect(
             host = servidor,
@@ -12,7 +12,11 @@ def generar_conexion():
             database = base_datos,
             password = contrasena)
         if conexion and conexion.is_connected():
-            return conexion
+            # return conexion
+            cursor = conexion.cursor()
+            cursor.execute(consulta)
+            resultado = cursor.fetchall()
+            return resultado
         else:
             print('No ha sido posible conectarse con el servidor de base de datos')
     except mysql.connector.Error as error_conexion:
@@ -25,17 +29,20 @@ def generar_conexion():
     else:
         conexion.close()
 
-# Crear un cursor
-def generar_cursor():
-    conexion = generar_conexion()
-    if conexion is not None:
-        cursor = conexion.cursor()
-        return cursor
+# # Crear un cursor
+# def generar_cursor():
+#     conexion = generar_conexion()
+#     if conexion is not None:
+#         cursor = conexion.cursor()
+#         return cursor
 
-def manejo_data(consulta):
-    # Ejecutar comandos SQL
-    cursor = generar_cursor()
-    if cursor is not None:
-        cursor.execute(consulta)
-        resultado = cursor.fetchall()
-        return resultado
+# def manejo_data(consulta):
+#     # Ejecutar comandos SQL
+#     cursor = generar_cursor()
+#     try:
+#         if cursor is not None:
+#             cursor.execute(consulta)
+#             resultado = cursor.fetchall()
+#             return resultado
+#     except mysql.connector.Error as error:
+#         print(error)

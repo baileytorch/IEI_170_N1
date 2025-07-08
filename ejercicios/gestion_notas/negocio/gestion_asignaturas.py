@@ -1,6 +1,6 @@
 from data.asignaturas import asignaturas
 from data.crear_data import crear_data
-from data.conexion import manejo_data
+from data.conexion import generar_conexion
 
 # CREATE
 def agregar_asignatura():
@@ -16,17 +16,24 @@ def agregar_asignatura():
 
 # READ todos
 def listado_asignaturas():
-    consulta = 'SELECT id_asignatura,codigo_asig, nombre_asig FROM asignaturas'
+    consulta = '''
+        SELECT id_asignatura,codigo_asig,nombre_asig
+        FROM asignaturas
+    '''
     asignaturas_db = []
-    asignaturas_db = manejo_data(consulta)
+    asignaturas_db = generar_conexion(consulta)
+    if asignaturas_db is not None:
+        return asignaturas_db
+    else:
+        print('No se han encontrado asignaturas')
+
+def mostrar_listado_asignatura(asignaturas):
     print() 
     print("Lista de Asignaturas")
     print("====================")
-    if asignaturas_db is not None:
-        for asignatura in asignaturas_db:
-            print(f"{asignatura}")
-    else:
-        print('No se han encontrado asignaturas')  
+    if asignaturas != None:
+        for asignatura in asignaturas:
+            print(asignatura)  
     print("====================")
 
 # READ 1 dato   
