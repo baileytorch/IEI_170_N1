@@ -1,14 +1,15 @@
 from auxiliares.version import version_actual
 from auxiliares.menu import items_menu
-from negocio.gestion_asignaturas import listado_asignaturas,mostrar_listado_asignatura
+from negocio.gestion_asignaturas import listado_asignaturas, mostrar_listado_asignatura
+
 
 def menu_principal():
     print()
     print(f'SISTEMA DE GESTIÓN DE NOTAS v.{version_actual}')
     print('=====================================')
     print()
-    
-    for clave,valor in items_menu.items():
+
+    for clave, valor in items_menu.items():
         print(f'[{clave}] {valor}')
     print()
     opcion_menu = input(f'Seleccione su opción [0-{len(items_menu)-1}]: ')
@@ -31,6 +32,6 @@ def menu_principal():
         return
     else:
         print('Opción Inválida')
-    
+
 
 menu_principal()

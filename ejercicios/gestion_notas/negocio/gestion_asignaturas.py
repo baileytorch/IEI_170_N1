@@ -1,6 +1,6 @@
 from data.asignaturas import asignaturas
 from data.crear_data import crear_data
-from data.conexion import generar_conexion
+from data.conexion import leer_data
 
 # CREATE
 
@@ -26,7 +26,7 @@ def listado_asignaturas():
         WHERE habilitado = 1
     '''
     asignaturas_db = []
-    asignaturas_db = generar_conexion(consulta)
+    asignaturas_db = leer_data(consulta)
     if asignaturas_db is not None:
         return asignaturas_db
     else:
